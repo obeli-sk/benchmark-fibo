@@ -1,0 +1,23 @@
+{
+  "name": "fibow-js",
+  "type": "module",
+  "devDependencies": {
+    "@bytecodealliance/componentize-js": "0.19.2",
+    "esbuild": "^0.25.4"
+  },
+  "scripts": {
+    "build:esbuild": "node esbuild.config.js",
+    "build:componentize": "node call-componentize.js",
+    "build": "npm run build:esbuild && npm run build:componentize"
+  },
+  "dependencies": {},
+  "componentMeta": {
+    "disableFeatures": [
+      "clocks",
+      "fetch-event",
+      "http",
+      "random",
+      "stdio"
+    ]
+  }
+}

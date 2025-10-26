@@ -12,6 +12,6 @@ location.path = "${OBELISK_TOML_DIR}/activity/js/dist/fiboa-js.wasm"
 max_retries = 0
 
 [[workflow]]
-name = "fibow_rs"
-location.path = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
+name = "fibow_js"
+location.path = "${OBELISK_TOML_DIR}/workflow/js/dist/fibow-js.wasm"
 exec.lock_expiry.seconds = 2
