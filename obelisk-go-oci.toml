@@ -1,0 +1,18 @@
+api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
+webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
+
+wasm.backtrace.persist = false
+
+[log.stdout]
+enabled = true
+
+[[activity_wasm]]
+name = "fiboa_go"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_go:2025-10-26@sha256:3afec06b84f2562f6b07268dd3cb304652d54a61af4c5b8015143d8b66051ab7"
+max_retries = 0
+
+[[workflow]]
+name = "fibow_go"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_go:2025-10-26@sha256:f18392eccb25ba41621c396f70c0a54a037b8a7ed95bc13fd3f368a673337df3"
+exec.lock_expiry.seconds = 2
+stub_wasi = true # TinyGo limitation

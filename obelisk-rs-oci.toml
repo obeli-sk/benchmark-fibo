@@ -7,12 +7,11 @@ wasm.backtrace.persist = false
 enabled = true
 
 [[activity_wasm]]
-name = "fiboa_js"
-location.path = "${OBELISK_TOML_DIR}/activity/js/dist/fiboa-js.wasm"
-exec.lock_expiry.seconds = 2
+name = "fiboa_rs"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs:2025-10-26@sha256:b402e1b1e25af531feb5494cdf5cd6c7d25d12c7f440919d0416ddb12a07ad10"
 max_retries = 0
 
 [[workflow]]
-name = "fibow_js"
-location.path = "${OBELISK_TOML_DIR}/workflow/js/dist/fibow-js.wasm"
+name = "fibow_rs"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_rs:2025-10-26@sha256:a1f4b5dcd8a3bba661f2eb9824157b38c7bbf2cdcc2a9291ec0505f420eb088b"
 exec.lock_expiry.seconds = 2

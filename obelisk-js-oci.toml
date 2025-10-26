@@ -8,11 +8,11 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_js"
-location.path = "${OBELISK_TOML_DIR}/activity/js/dist/fiboa-js.wasm"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_js:2025-10-26@sha256:f06a20d85a800c16d9f2ced05565367a02e2df49efaaad2ffe66cc64f86cb8ba"
 exec.lock_expiry.seconds = 2
 max_retries = 0
 
 [[workflow]]
 name = "fibow_js"
-location.path = "${OBELISK_TOML_DIR}/workflow/js/dist/fibow-js.wasm"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_js:2025-10-26@sha256:f4e34d85f220009217a9be4baf500fca46ea8e842c71c7a8c43c2b89ba756b2d"
 exec.lock_expiry.seconds = 2
