@@ -12,6 +12,7 @@ location.path = "${OBELISK_TOML_DIR}/activity/go/dist/fiboa-go.wasm"
 max_retries = 0
 
 [[workflow]]
-name = "fibow_rs"
-location.path = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
+name = "fibow_go"
+location.path = "${OBELISK_TOML_DIR}/workflow/go/dist/fibow-go.wasm"
 exec.lock_expiry.seconds = 2
+stub_wasi = true # TinyGo limitation
