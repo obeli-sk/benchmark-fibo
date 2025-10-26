@@ -8,11 +8,17 @@ build-rs:
 
 # Build JavaScript components
 build-js:
-	./scripts/build-components-js.sh
+	(cd activity/js && npm install && npm run build)
+	(cd workflow/js && npm install && npm run build)
 
 # Build Go components
 build-go:
-	./scripts/build-components-go.sh
+	(cd activity/go && ./build.sh)
+	(cd workflow/go && ./build.sh)
+
+# Build Python components
+build-py:
+	(cd activity/py && ./build.sh)
 
 # Start server with Rust components built locally
 serve-rs:
@@ -34,3 +40,7 @@ serve-go:
 # Start server with Go components downloaded from OCI registry
 serve-go-oci:
 	obelisk server run --config obelisk-go-oci.toml
+
+# Start server with Python components build locally
+serve-py:
+	obelisk server run --config obelisk-py.toml
