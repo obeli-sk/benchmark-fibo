@@ -33,9 +33,9 @@
               cargo-binstall
               cargo-edit
               cargo-expand
+              cargo-generate
               just
               obelisk.packages.${system}.default
-              pkg-config
               rustToolchain
               wasm-tools
             ];
