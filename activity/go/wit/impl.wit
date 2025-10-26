@@ -1,0 +1,8 @@
+package any:any;
+
+world root {
+    include benchmark-fibo:activity/exports;
+
+    // TinyGo limitation, not used.
+    include wasi:cli/command@0.2.0;
+}

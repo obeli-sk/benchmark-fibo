@@ -9,8 +9,14 @@ build-rs:
 build-js:
 	./scripts/build-components-js.sh
 
+build-go:
+	./scripts/build-components-go.sh
+
 serve-rs:
 	obelisk server run --config obelisk-rs.toml
 
 serve-js:
 	obelisk server run --config obelisk-js.toml
+
+serve-go:
+	obelisk server run --config obelisk-go.toml
