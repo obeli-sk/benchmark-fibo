@@ -1,0 +1,17 @@
+api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
+webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
+
+wasm.backtrace.persist = false
+
+[log.stdout]
+enabled = true
+level = "warn,obelisk=info"
+
+[[activity_wasm]]
+name = "fiboa_rs"
+location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs.wasm"
+
+[[workflow]]
+name = "fibow_rs"
+location.path = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
+exec.lock_expiry.seconds = 2

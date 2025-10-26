@@ -1,0 +1,6 @@
+package any:any;
+
+world any {
+    //export template-fibo:activity/fibo-activity-ifc;
+    include benchmark-fibo:activity/exports;
+}

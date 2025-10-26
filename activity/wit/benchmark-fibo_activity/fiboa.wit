@@ -1,0 +1,9 @@
+package benchmark-fibo:activity;
+
+interface fiboa {
+    fibo: func(n: u8) -> result<u64>;
+}
+
+world exports {
+    export fiboa;
+}

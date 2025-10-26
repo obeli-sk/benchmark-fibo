@@ -1,0 +1,11 @@
+package any:any;
+
+world any {
+    include benchmark-fibo:workflow/exports;
+
+    import benchmark-fibo:activity/fiboa;
+    import benchmark-fibo:activity-obelisk-ext/fiboa;
+
+    import obelisk:types/execution@3.0.0;
+    import obelisk:workflow/workflow-support@3.0.0;
+}

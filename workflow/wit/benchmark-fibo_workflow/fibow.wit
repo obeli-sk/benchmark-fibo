@@ -1,0 +1,10 @@
+package benchmark-fibo:workflow;
+
+interface fibow {
+    fiboa: func(n: u8, iterations: u32) -> result<u64>;
+    fiboa-concurrent: func(n: u8, iterations: u32) -> result<u64>;
+}
+
+world exports {
+    export fibow;
+}

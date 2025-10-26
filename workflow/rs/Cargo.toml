@@ -1,0 +1,10 @@
+[package]
+name = "fibow-rs"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wit-bindgen.workspace = true
