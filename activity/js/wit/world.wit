@@ -1,5 +1,5 @@
 package any:any;
 
-world any {
+world root {
     include benchmark-fibo:activity/exports;
 }

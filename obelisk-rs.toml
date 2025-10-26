@@ -5,11 +5,11 @@ wasm.backtrace.persist = false
 
 [log.stdout]
 enabled = true
-level = "warn,obelisk=info"
 
 [[activity_wasm]]
 name = "fiboa_rs"
 location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs.wasm"
+max_retries = 0
 
 [[workflow]]
 name = "fibow_rs"
