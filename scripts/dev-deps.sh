@@ -15,3 +15,6 @@ just --version >> dev-deps.txt
 obelisk --version >> dev-deps.txt
 rustc --version >> dev-deps.txt
 wasm-tools --version >> dev-deps.txt
+# JavaScript
+echo "node.js $(node --version)" >> dev-deps.txt
+wizer --version >> dev-deps.txt

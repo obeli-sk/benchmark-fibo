@@ -38,6 +38,9 @@
               obelisk.packages.${system}.default
               rustToolchain
               wasm-tools
+              # javascript support
+              nodejs_22
+              wizer
             ];
           };
         }
