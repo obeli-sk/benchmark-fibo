@@ -21,3 +21,6 @@ wizer --version >> dev-deps.txt
 # Go
 tinygo version >> dev-deps.txt
 echo "wit-bindgen-go-cli 0.7.0" >> dev-deps.txt
+# Python
+python --version >> dev-deps.txt
+echo "componentize-py $(python -m pip show componentize-py | grep Version)" >> dev-deps.txt

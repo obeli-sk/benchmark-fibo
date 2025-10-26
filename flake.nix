@@ -59,7 +59,14 @@
               go
               tinygo
               wit-bindgen-go-cli
+              # Python
+              python314
+              python314.pkgs.venvShellHook
             ];
+            venvDir = "./.venv";
+            postVenvCreation = ''
+              pip install -r requirements.txt
+            '';
           };
         }
       );

@@ -7,8 +7,8 @@ wasm.backtrace.persist = false
 enabled = true
 
 [[activity_wasm]]
-name = "fiboa_js"
-location.path = "${OBELISK_TOML_DIR}/activity/js/dist/fiboa-js.wasm"
+name = "fiboa_py"
+location.path = "${OBELISK_TOML_DIR}/activity/py/dist/fiboa-py.wasm"
 exec.lock_expiry.seconds = 5
 max_retries = 0
 
