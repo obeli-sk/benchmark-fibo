@@ -1,6 +1,6 @@
 package any:any;
 
-world any {
+world root {
     include benchmark-fibo:workflow/exports;
 
     import benchmark-fibo:activity/fiboa;
