@@ -8,12 +8,11 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_py"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_py:2025-10-27@sha256:18ccf6875e857969fa204b2c3dc5dd5779098313da27abaedbc7afa0b55db999"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_py:2025-10-27-1@sha256:42215af9b92ad89c7c71bead271c994e96d24233119cdf20006e3aef73cc3494"
 exec.lock_expiry.seconds = 5
 max_retries = 0
 
 [[workflow]]
 name = "fibow_py"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_py:2025-10-27@sha256:98c03b945b7cc0f75ca9c5a60bfc46b7624c6ac19eee042d3af3ef0c96a4a85d"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_py:2025-10-27-1@sha256:1e97896dae8b46953cea29792fa21ede9b15dfe1988cfababde39a8c642d29b2"
 exec.lock_expiry.seconds = 2
-stub_wasi = true # componentize-py limitation
