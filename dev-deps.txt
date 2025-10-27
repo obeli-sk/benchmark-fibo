@@ -1,14 +1,14 @@
 cargo-binstall 1.15.6
 cargo-edit-upgrade 0.13.7
-cargo-expand 1.0.117
+cargo-expand 1.0.118
 cargo generate 0.23.5
 just 1.43.0
-obelisk 0.26.1
+obelisk 0.26.2
 rustc 1.90.0 (1159e78c4 2025-09-14)
 wasm-tools 1.239.0
-node.js v22.19.0
+node.js v22.20.0
 wizer 10.0.0
-tinygo version 0.39.0 linux/amd64 (using go version go1.25.1 and LLVM version 20.1.8)
+tinygo version 0.39.0 linux/amd64 (using go version go1.25.2 and LLVM version 20.1.8)
 wit-bindgen-go-cli 0.7.0
 Python 3.14.0
 componentize-py Version: 0.18.0
