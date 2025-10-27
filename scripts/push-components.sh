@@ -32,4 +32,7 @@ push "workflow/js/dist/fibow-js.wasm" obelisk-js-oci.toml fibow_js
 push "target/wasm32-wasip2/release_activity/fiboa_rs.wasm" obelisk-rs-oci.toml fiboa_rs
 push "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm" obelisk-rs-oci.toml fibow_rs
 
+push "activity/py/dist/fiboa-py.wasm" obelisk-py-oci.toml fiboa_py
+push "workflow/py/dist/fibow-py.wasm" obelisk-py-oci.toml fibow_py
+
 echo "All components pushed and TOML file updated successfully."
