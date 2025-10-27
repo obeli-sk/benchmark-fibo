@@ -19,6 +19,7 @@ build-go:
 # Build Python components
 build-py:
 	(cd activity/py && ./build.sh)
+	(cd workflow/py && ./build.sh)
 
 # Start server with Rust components built locally
 serve-rs:

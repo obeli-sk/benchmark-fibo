@@ -13,6 +13,7 @@ exec.lock_expiry.seconds = 5
 max_retries = 0
 
 [[workflow]]
-name = "fibow_js"
-location.path = "${OBELISK_TOML_DIR}/workflow/js/dist/fibow-js.wasm"
+name = "fibow_py"
+location.path = "${OBELISK_TOML_DIR}/workflow/py/dist/fibow-py.wasm"
 exec.lock_expiry.seconds = 2
+stub_wasi = true # componentize-py limitation
