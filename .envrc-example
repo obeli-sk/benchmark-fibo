@@ -2,3 +2,4 @@ use flake .
 watch_file ./rust-toolchain.toml ./flake.nix
 
 export GOPATH=$(pwd)/.gopath
+export FIBO_EXE_PATH="$(pwd)/target/x86_64-unknown-linux-musl/release_bin/fibo"
