@@ -10,6 +10,7 @@ enabled = true
 name = "fiboa_go"
 location.path = "${OBELISK_TOML_DIR}/activity/go/dist/fiboa-go.wasm"
 max_retries = 0
+exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_go"

@@ -9,8 +9,8 @@ enabled = true
 [[activity_wasm]]
 name = "fiboa_js"
 location.path = "${OBELISK_TOML_DIR}/activity/js/dist/fiboa-js.wasm"
-exec.lock_expiry.seconds = 5
 max_retries = 0
+exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_js"

@@ -9,8 +9,8 @@ enabled = true
 [[activity_wasm]]
 name = "fiboa_js"
 location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_js:2025-10-26-1@sha256:14718818920e65afba1704275a1c4b44d64e6151c0bbe2535cd693218b2e28b2"
-exec.lock_expiry.seconds = 2
 max_retries = 0
+exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_js"

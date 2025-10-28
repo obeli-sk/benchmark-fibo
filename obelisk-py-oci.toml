@@ -9,8 +9,8 @@ enabled = true
 [[activity_wasm]]
 name = "fiboa_py"
 location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_py:2025-10-27-1@sha256:42215af9b92ad89c7c71bead271c994e96d24233119cdf20006e3aef73cc3494"
-exec.lock_expiry.seconds = 5
 max_retries = 0
+exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_py"

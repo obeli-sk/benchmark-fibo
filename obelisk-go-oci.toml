@@ -10,6 +10,7 @@ enabled = true
 name = "fiboa_go"
 location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_go:2025-10-26-1@sha256:5d0531f1705af18f10e3e75850e1a1c9142f2e0724859c7605221c762e711302"
 max_retries = 0
+exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_go"
