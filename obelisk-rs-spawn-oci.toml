@@ -9,7 +9,7 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_rs_spawn"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs_spawn:2025-10-28-1@sha256:5722865f302d824d3296fbff40d23a37f646451a46f0fe7652c9c22f67796d1e"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs_spawn:2025-10-28-2@sha256:78e7a6ac89766483b715aca239d4e327f8fbc81bdf1629aea29eb3d70671e276"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 forward_stdout = "stderr"
@@ -19,5 +19,5 @@ directories  = { enabled = true, reuse_on_retry = false, process_provider = "nat
 
 [[workflow]]
 name = "fibow_rs"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_rs:2025-10-28-1@sha256:0225a9e049f4f05ebb45bb9f3502a7edef12e92dae03f1ea9e3fc0b1d4fd8d5b"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_rs:2025-10-28-2@sha256:964e547da87b480431fdd3209f8fa1927b0087512218ec49197d17ff6563f130"
 exec.lock_expiry.seconds = 2
