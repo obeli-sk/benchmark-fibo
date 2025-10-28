@@ -23,6 +23,8 @@ inherits = "release"
 
 [profile.release_activity]
 inherits = "release"
+opt-level = "s"
 
 [profile.release_workflow]
 inherits = "release"
+opt-level = "s"
