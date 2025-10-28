@@ -10,7 +10,7 @@ enabled = true
 name = "fiboa_rs"
 location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs.wasm"
 max_retries = 0
-exec.lock_expiry.seconds = 5
+exec.lock_expiry.seconds = 25
 
 [[workflow]]
 name = "fibow_rs"
