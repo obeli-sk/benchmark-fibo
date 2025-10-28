@@ -50,6 +50,9 @@ serve-rs:
 serve-rs-oci:
 	obelisk server run --config obelisk-rs-oci.toml
 
-# Start server with Rust components built locally
+# Start server with Rust components (spawning native process) built locally
 serve-rs-spawn:
 	obelisk server run --config obelisk-rs-spawn.toml
+# Start server with Rust components (spawning native process) downloaded from OCI registry
+serve-rs-spawn-oci:
+	obelisk server run --config obelisk-rs-spawn-oci.toml

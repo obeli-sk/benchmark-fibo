@@ -9,7 +9,7 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_rs_spawn"
-location.oci = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs_spawn.wasm"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs_spawn:2025-10-28@sha256:c1cc2d5c5c4c5bc625f37a860e0ae44c647b78713cecca9b58b742037608a850"
 max_retries = 0
 exec.lock_expiry.seconds = 5
 forward_stdout = "stderr"
