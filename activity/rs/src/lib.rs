@@ -5,12 +5,16 @@ generate!({ generate_all });
 struct Component;
 export!(Component);
 
+fn fibo(n: u8) -> u64 {
+    if n <= 1 {
+        n.into()
+    } else {
+        fibo(n - 1) + fibo(n - 2)
+    }
+}
+
 impl Guest for Component {
     fn fibo(n: u8) -> Result<u64, ()> {
-        if n <= 1 {
-            Ok(n.into())
-        } else {
-            Ok(Self::fibo(n - 1).unwrap() + Self::fibo(n - 2).unwrap())
-        }
+        Ok(fibo(n))
     }
 }
