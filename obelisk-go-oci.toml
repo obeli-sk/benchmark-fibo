@@ -8,12 +8,12 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_go"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_go:2025-10-26-1@sha256:5d0531f1705af18f10e3e75850e1a1c9142f2e0724859c7605221c762e711302"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_go:2025-10-28-1@sha256:e667a8c10cb653c149ca871bcd503b9c0eb1fe7375dacd7fe2863f7321574a34"
 max_retries = 0
 exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_go"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_go:2025-10-26-1@sha256:32f569719119f2b41d8547f09d4fc86a664ef28c05ad8fcc84dbbe489a11ac29"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_go:2025-10-28-1@sha256:e4f5507b3523db8e4a0caa4e76b376c3dc86fa93fc140ac08cfc63105b3d778d"
 exec.lock_expiry.seconds = 2
 stub_wasi = true # TinyGo limitation

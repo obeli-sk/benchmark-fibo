@@ -8,11 +8,11 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_js"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_js:2025-10-26-1@sha256:14718818920e65afba1704275a1c4b44d64e6151c0bbe2535cd693218b2e28b2"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_js:2025-10-28-1@sha256:addc2bc4afa5cdde11e0f28fd0e72d5faed91957b3b5a92c121f6d4a24a63a50"
 max_retries = 0
 exec.lock_expiry.seconds = 5
 
 [[workflow]]
 name = "fibow_js"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_js:2025-10-26-1@sha256:fb85156bf516c5f3ba473a881efb2b97441551177057a72942e791af2868ddcf"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_js:2025-10-28-1@sha256:bf2a1b60f31d904c8ab1f120e31eb4705dadf118098137a020591127f8345e56"
 exec.lock_expiry.seconds = 2
