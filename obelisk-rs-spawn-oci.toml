@@ -1,0 +1,23 @@
+api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
+webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
+
+wasm.backtrace.persist = false
+activities.directories.enabled = true
+
+[log.stdout]
+enabled = true
+
+[[activity_wasm]]
+name = "fiboa_rs_spawn"
+location.oci = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs_spawn.wasm"
+max_retries = 0
+exec.lock_expiry.seconds = 5
+forward_stdout = "stderr"
+forward_stderr = "stderr"
+env_vars = ["FIBO_EXE_PATH"]
+directories  = { enabled = true, reuse_on_retry = false, process_provider = "native"}
+
+[[workflow]]
+name = "fibow_rs"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_rs:2025-10-26-1@sha256:8f6174ddba0ffc1ccec4a2a8dd03c56e04cd2dc20a0cbcd792cee677c1460b08"
+exec.lock_expiry.seconds = 2

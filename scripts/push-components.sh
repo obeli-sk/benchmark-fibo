@@ -30,6 +30,7 @@ push "activity/js/dist/fiboa-js.wasm" obelisk-js-oci.toml fiboa_js
 push "workflow/js/dist/fibow-js.wasm" obelisk-js-oci.toml fibow_js
 
 push "target/wasm32-wasip2/release_activity/fiboa_rs.wasm" obelisk-rs-oci.toml fiboa_rs
+push "target/wasm32-wasip2/release_activity/fiboa_rs_spawn.wasm" obelisk-rs-oci.toml fiboa_rs_spawn
 push "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm" obelisk-rs-oci.toml fibow_rs
 
 push "activity/py/dist/fiboa-py.wasm" obelisk-py-oci.toml fiboa_py

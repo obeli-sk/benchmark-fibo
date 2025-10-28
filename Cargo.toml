@@ -1,14 +1,16 @@
 [workspace]
 resolver = "2"
-members = ["activity/rs", "workflow/rs"]
+members = ["activity/rs", "activity/rs-spawn", "bin/native", "workflow/rs"]
 
 [workspace.package]
 edition = "2024"
 version = "0.1.0"
 
 [workspace.dependencies]
+anyhow = "1"
+wasip2 = "1.0.1"
 wit-bindgen = "0.47.0"
-
+wstd = "0.5.6"
 
 [profile.release]
 overflow-checks = true

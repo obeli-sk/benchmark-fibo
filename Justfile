@@ -19,6 +19,7 @@ build-py:
 # Build Rust components
 build-rs:
 	(cd activity/rs && cargo build --profile release_activity)
+	(cd activity/rs-spawn && cargo build --profile release_activity)
 	(cd workflow/rs && cargo build --profile release_workflow)
 
 # Start server with Go components built locally
@@ -48,3 +49,7 @@ serve-rs:
 # Start server with Rust components downloaded from OCI registry
 serve-rs-oci:
 	obelisk server run --config obelisk-rs-oci.toml
+
+# Start server with Rust components built locally
+serve-rs-spawn:
+	obelisk server run --config obelisk-rs-spawn.toml
