@@ -14,8 +14,16 @@ wstd = "0.5.6"
 
 [profile.release]
 overflow-checks = true
-lto = true
+lto = "fat"
 opt-level = "s"
+codegen-units = 1
+
+[profile.release_bin]
+inherits = "release"
+overflow-checks = false
+strip = "symbols"
+opt-level = 3
+
 
 [profile.release_activity]
 inherits = "release"

@@ -1,5 +1,5 @@
 # Build all components
-build: build-go build-js build-py build-rs
+build: build-go build-js build-py build-rs build-fibo-binary
 
 # Build Go components
 build-go:
@@ -21,6 +21,9 @@ build-rs:
 	(cd activity/rs && cargo build --profile release_activity)
 	(cd activity/rs-spawn && cargo build --profile release_activity)
 	(cd workflow/rs && cargo build --profile release_workflow)
+
+build-fibo-binary:
+	cargo build -p fibo --profile=release_bin --target x86_64-unknown-linux-musl
 
 # Start server with Go components built locally
 serve-go:
