@@ -8,7 +8,7 @@ enabled = true
 
 [[activity_wasm]]
 name = "fiboa_rs"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs:2025-10-28-2@sha256:25dd8357d3aa1cbfeff83674cdcf8d4c5b8fc34525d564bc3d84c528bd90f96b"
+location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs:2025-10-28-3@sha256:6f5a105f03dce37ce05fe71bae5f3172d3f426f6f8802b6972c722bd595f1cb9"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
