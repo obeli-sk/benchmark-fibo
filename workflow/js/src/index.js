@@ -10,7 +10,7 @@ function unwrap(obj) {
     if (obj.tag === 'ok') {
         return obj.val;
     } else {
-        throw info.val;
+        throw obj.val;
     }
 }
 
