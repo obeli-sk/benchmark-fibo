@@ -6,6 +6,6 @@ world root {
     import benchmark-fibo:activity/fiboa;
     import benchmark-fibo:activity-obelisk-ext/fiboa;
 
-    import obelisk:types/execution@3.0.0;
-    import obelisk:workflow/workflow-support@3.0.0;
+    import obelisk:types/execution@4.0.0;
+    import obelisk:workflow/workflow-support@4.0.0;
 }

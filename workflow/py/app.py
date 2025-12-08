@@ -14,7 +14,7 @@ class Fibow(exports.Fibow):
         return last
 
     def fiboa_concurrent(self, n: int, iterations: int) -> int:
-        join_set = workflow_support.new_join_set_generated(workflow_support.ClosingStrategy.COMPLETE)
+        join_set = workflow_support.join_set_create()
         for i in range(iterations):
             benchmark_fibo_activity_obelisk_ext_fiboa.fibo_submit(join_set, n)
         last = 0
