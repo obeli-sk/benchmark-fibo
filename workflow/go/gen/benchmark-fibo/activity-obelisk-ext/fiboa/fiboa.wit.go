@@ -5,6 +5,7 @@ package fiboa
 
 import (
 	"github.com/obeli-sk/benchmark-fibo/fibow-go/gen/obelisk/types/execution"
+	joinset "github.com/obeli-sk/benchmark-fibo/fibow-go/gen/obelisk/types/join-set"
 	"go.bytecodealliance.org/cm"
 )
 
@@ -15,8 +16,8 @@ type ExecutionID = execution.ExecutionID
 
 // JoinSet represents the imported type alias "benchmark-fibo:activity-obelisk-ext/fiboa#join-set".
 //
-// See [execution.JoinSet] for more information.
-type JoinSet = execution.JoinSet
+// See [joinset.JoinSet] for more information.
+type JoinSet = joinset.JoinSet
 
 // AwaitNextExtensionError represents the type alias "benchmark-fibo:activity-obelisk-ext/fiboa#await-next-extension-error".
 //

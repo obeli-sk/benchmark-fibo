@@ -1,10 +1,6 @@
 import { fibo } from 'benchmark-fibo:activity/fiboa';
 import { fiboSubmit, fiboAwaitNext } from 'benchmark-fibo:activity-obelisk-ext/fiboa';
-import { newJoinSetGenerated } from 'obelisk:workflow/workflow-support@3.0.0';
-
-const ClosingStrategy = {
-    Complete: "complete",
-};
+import { joinSetCreate } from 'obelisk:workflow/workflow-support@4.0.0';
 
 function unwrap(obj) {
     if (obj.tag === 'ok') {
@@ -23,7 +19,7 @@ export const fibow = {
         return last;
     },
     fiboaConcurrent(n, iterations) {
-        const joinSet = newJoinSetGenerated(ClosingStrategy.Complete);
+        const joinSet = joinSetCreate();
         for (let i = 0; i < iterations; i++) {
             fiboSubmit(joinSet, n);
         }

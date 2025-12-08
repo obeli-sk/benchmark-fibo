@@ -18,7 +18,7 @@ func fiboa(n uint8, iterations uint32) (result cm.Result[uint64, uint64, struct{
 }
 
 func fiboaConcurrent(n uint8, iterations uint32) (result cm.Result[uint64, uint64, struct{}]) {
-	joinSet := obeliskWorkflowSupport.NewJoinSetGenerated(obeliskWorkflowSupport.ClosingStrategyComplete)
+	joinSet := obeliskWorkflowSupport.JoinSetCreate()
 	for i := 0; i < int(iterations); i++ {
 		fiboaConcurrentbindings.FiboSubmit(joinSet, n)
 	}
