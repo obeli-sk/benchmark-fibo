@@ -27,6 +27,8 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/flake.lock -o flake.lock
           curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/rust-toolchain.toml -o rust-toolchain.toml
+          sed -i 's/targets = \["wasm32-unknown-unknown", "wasm32-wasip2"\]/targets = ["wasm32-unknown-unknown", "wasm32-wasip2", "x86_64-unknown-linux-musl"]/' rust-toolchain.toml
+
 
       - uses: nixbuild/nix-quick-install-action@v34
         with:

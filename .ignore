@@ -1,2 +1,5 @@
 .direnv
 /.gopath/
+/.venv/
+/target/
+node_modules/
