@@ -1,11 +1,11 @@
-cargo-binstall 1.16.2
+cargo-binstall 1.16.3
 cargo-edit-upgrade 0.13.8
 cargo-expand 1.0.118
 cargo generate 0.23.5
 just 1.43.1
-obelisk 0.29.1
-rustc 1.91.1 (ed61e7d7e 2025-11-07)
-wasm-tools 1.242.0
+obelisk 0.30.0
+rustc 1.92.0 (ded5c06cf 2025-12-08)
+wasm-tools 1.243.0
 node.js v22.21.1
 wizer 10.0.0
 tinygo version 0.39.0 linux/amd64 (using go version go1.25.4 and LLVM version 20.1.8)
