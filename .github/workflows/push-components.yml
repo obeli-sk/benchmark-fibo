@@ -1,0 +1,100 @@
+name: push-components
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "The tag to be used when pushing components to the Docker Hub."
+        required: true
+        type: string
+      ref:
+        description: "The ref (branch or SHA) to process"
+        required: true
+        type: string
+        default: "main"
+
+defaults:
+  run:
+    shell: bash -xe {0}
+
+jobs:
+  push-components:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.inputs.ref }} # Use the ref if provided, otherwise defaults to the current branch/commit
+
+      - uses: nixbuild/nix-quick-install-action@v34
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          nix_conf: |
+            extra-substituters = https://cache.garnix.io
+            extra-trusted-public-keys = cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g
+      - name: Populate the nix store
+        run: |
+          nix develop --command echo
+
+      - name: Log in to Docker Hub
+        run: |
+          echo "$DOCKER_HUB_TOKEN" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+        env:
+          DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Run push-components.sh
+        run: |
+          nix develop --command ./scripts/push-components.sh $TAG
+        env:
+          TAG: ${{ github.event.inputs.tag }}
+
+      - name: Generate Unique Branch Name
+        id: branch-name
+        run: echo "branch_name=push-components-$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Configure git before push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push obelisk-*-oci.toml
+        run: |
+          git add .
+          git commit -m "chore: Bump components to $TAG"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git push origin ${{ github.event.inputs.ref }}
+        env:
+          TAG: ${{ github.event.inputs.tag }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+      - name: Create a PR
+        run: |
+          git checkout -b ${{ steps.branch-name.outputs.branch_name }}
+          git add .
+          if [ -n "$(git status --porcelain)" ]; then
+              git commit -m "chore: Push components - $TAG"
+              git push origin ${{ steps.branch-name.outputs.branch_name }}
+
+              OWNER=$(echo "${{ github.repository }}" | cut -d'/' -f1)
+              REPO=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+              curl -v --fail -X POST \
+                -H "Content-Type: application/json" \
+                -H "Authorization: Bearer $GITHUB_TOKEN" \
+                https://api.github.com/repos/$OWNER/$REPO/pulls \
+                -d '{
+                  "title": "Sync `flake.lock` from upstream",
+                  "head": "'${{ steps.branch-name.outputs.branch_name }}'",
+                  "base": "main",
+                  "body": ""
+                }'
+          else
+              echo "No changes to commit."
+          fi
+        env:
+          TAG: ${{ github.event.inputs.tag }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_PR_RW }}
+
