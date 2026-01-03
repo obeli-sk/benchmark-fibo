@@ -13,7 +13,6 @@ generate() {
 
   echo "Updating $path"
   cd "$path/wit"
-  rm -rf gen
   obelisk generate extensions "$component_type" . gen
 }
 
