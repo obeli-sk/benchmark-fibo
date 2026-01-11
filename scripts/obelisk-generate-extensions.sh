@@ -13,7 +13,7 @@ generate() {
 
   echo "Updating $path"
   cd "$path/wit"
-  obelisk generate extensions "$component_type" . gen
+  obelisk generate wit-extensions "$component_type" . gen
 }
 
 generate "activity" "activity_wasm"
