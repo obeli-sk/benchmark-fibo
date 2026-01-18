@@ -8,9 +8,9 @@ version = "0.1.0"
 
 [workspace.dependencies]
 anyhow = "1"
-wasip2 = "1.0.1"
-wit-bindgen = "0.50.0"
-wstd = "0.6.4"
+wasip2 = "1.0.2"
+wit-bindgen = "0.51.0"
+wstd = "0.6.5"
 
 [profile.release]
 codegen-units = 1
