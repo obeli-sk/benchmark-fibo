@@ -9,7 +9,7 @@ version = "0.1.0"
 [workspace.dependencies]
 anyhow = "1"
 wasip2 = "1.0.2"
-wit-bindgen = "0.51.0"
+wit-bindgen = "0.52.0"
 wstd = "0.6.5"
 
 [profile.release]
