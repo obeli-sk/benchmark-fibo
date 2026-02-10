@@ -3,16 +3,16 @@ webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui we
 
 wasm.backtrace.persist = false
 
-[log.stdout]
+[log.console]
 enabled = true
 
 [[activity_wasm]]
 name = "fiboa_rs"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fiboa_rs:2025-12-18@sha256:ac4a317e9972588fb35d165f0292e6d767787858a07ff05cd8f58d292b03b7af"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_rs:2025-12-18@sha256:ac4a317e9972588fb35d165f0292e6d767787858a07ff05cd8f58d292b03b7af"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
 [[workflow]]
 name = "fibow_rs"
-location.oci = "docker.io/getobelisk/benchmark_fibo_fibow_rs:2025-12-18@sha256:1f8b888bab1ea221c51190fea3d4ff0466ae6e6dcc41a859a008647dba5a6e7b"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_rs:2025-12-18@sha256:1f8b888bab1ea221c51190fea3d4ff0466ae6e6dcc41a859a008647dba5a6e7b"
 exec.lock_expiry.seconds = 2

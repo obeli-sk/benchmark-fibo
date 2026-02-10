@@ -3,17 +3,17 @@ webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui we
 
 wasm.backtrace.persist = false
 
-[log.stdout]
+[log.console]
 enabled = true
 
 [[activity_wasm]]
 name = "fiboa_go"
-location.path = "${OBELISK_TOML_DIR}/activity/go/dist/fiboa-go.wasm"
+location = "${OBELISK_TOML_DIR}/activity/go/dist/fiboa-go.wasm"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
 [[workflow]]
 name = "fibow_go"
-location.path = "${OBELISK_TOML_DIR}/workflow/go/dist/fibow-go.wasm"
+location = "${OBELISK_TOML_DIR}/workflow/go/dist/fibow-go.wasm"
 exec.lock_expiry.seconds = 2
 stub_wasi = true # TinyGo limitation
