@@ -46,7 +46,7 @@ jobs:
 
       - name: Regenerate extensinos
         run: |
-          nix develop . --command ./scripts/obelisk-generate-extensions.sh
+          nix develop . --command ./scripts/obelisk-generate-wit-extensions.sh
 
       - name: Generate Unique Branch Name
         id: branch-name
