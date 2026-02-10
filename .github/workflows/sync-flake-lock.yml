@@ -15,20 +15,20 @@ jobs:
   sync-flake-lock:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
-      - uses: nixbuild/nix-quick-install-action@v30
+      - uses: nixbuild/nix-quick-install-action@v34
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sync flake.lock and rust-toolchain.toml from upstream
         run: |
           curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/flake.lock -o flake.lock
-          curl https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/rust-toolchain.toml -o rust-toolchain.toml
-          sed -i 's/targets = \["wasm32-unknown-unknown", "wasm32-wasip2"\]/targets = ["wasm32-unknown-unknown", "wasm32-wasip2", "x86_64-unknown-linux-musl"]/' rust-toolchain.toml
-
+          UPSTREAM=https://raw.githubusercontent.com/obeli-sk/obelisk/refs/heads/latest/rust-toolchain.toml
+          CHANNEL=$(curl -fsSL "$UPSTREAM" | grep '^channel =')
+          sed -i "s/^channel =.*/$CHANNEL/" rust-toolchain.toml
 
       - uses: nixbuild/nix-quick-install-action@v34
         with:
@@ -44,8 +44,9 @@ jobs:
         run: |
           nix develop . --command ./scripts/dev-deps.sh
 
-      - name: Regenerate extensinos
+      - name: Generate wit support and extensions 
         run: |
+          nix develop . --command ./scripts/obelisk-generate-wit-support.sh
           nix develop . --command ./scripts/obelisk-generate-wit-extensions.sh
 
       - name: Generate Unique Branch Name
