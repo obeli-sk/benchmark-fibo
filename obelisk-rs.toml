@@ -3,16 +3,16 @@ webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui we
 
 wasm.backtrace.persist = false
 
-[log.stdout]
+[log.console]
 enabled = true
 
 [[activity_wasm]]
 name = "fiboa_rs"
-location.path = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs.wasm"
+location = "${OBELISK_TOML_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs.wasm"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
 [[workflow]]
 name = "fibow_rs"
-location.path = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
+location = "${OBELISK_TOML_DIR}/target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
 exec.lock_expiry.seconds = 2
