@@ -10,12 +10,12 @@ just serve-rs-oci
 
 Compute `fibo(10)` sequentially 100 times:
 ```sh
-obelisk client execution submit -f .../fibow.fiboa -- 10 100
+obelisk execution submit -f .../fibow.fiboa -- 10 100
 ```
 
 Compute `fibo(10)` in parallel 200 times:
 ```sh
-obelisk client execution submit -f .../fibow.fiboa-concurrent -- 10 200
+obelisk execution submit -f .../fibow.fiboa-concurrent -- 10 200
 ```
 
 ## Building WASM Components from source
@@ -73,5 +73,5 @@ docker run --net=host --rm -it \
   server run -c /config/obelisk-rs-oci.toml
 
 # From within the container (docker exec..) run fibo(10) with a single iteration
-obelisk client execution submit -f .../fibow.fiboa -- 10 1
+obelisk execution submit -f .../fibow.fiboa -- 10 1
 ```

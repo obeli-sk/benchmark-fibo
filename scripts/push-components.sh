@@ -14,7 +14,7 @@ push_component() {
 
     OCI_LOCATION="${PREFIX}${COMPONENT_NAME}:${TAG}"
     echo "Pushing ${RELATIVE_PATH} to ${OCI_LOCATION}..." >&2
-    obelisk client component push "$RELATIVE_PATH" "$OCI_LOCATION"
+    obelisk component push "$RELATIVE_PATH" "$OCI_LOCATION"
 }
 
 update_toml() {
