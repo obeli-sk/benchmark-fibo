@@ -18,24 +18,26 @@ push_component() {
 }
 
 update_toml() {
-    TOML_FILE="$1"
-    COMPONENT_NAME="$2"
-    NEW_LOCATION="$3"
+    local COMPONENT_TYPE="$1"
+    local TOML_FILE="$2"
+    local COMPONENT_NAME="$3"
+    local NEW_LOCATION="$4"
 
     # Replace the old location with the new OCI location
-    sed -i -E "/name = \"${COMPONENT_NAME}\"/{n;s|location\.oci = \".*\"|location.oci = \"${NEW_LOCATION}\"|}" "$TOML_FILE"
+    obelisk component add ${COMPONENT_TYPE} ${NEW_LOCATION} --name ${COMPONENT_NAME} -c $TOML_FILE
 }
 
 push_and_update() {
-    RELATIVE_PATH="$1"
-    COMPONENT_NAME="$2"
-    shift 2
+    local COMPONENT_TYPE="$1"
+    local RELATIVE_PATH="$2"
+    local COMPONENT_NAME="$3"
+    shift 3
     TOML_FILES=("$@")
 
     OCI_LOCATION=$(push_component "$RELATIVE_PATH" "$COMPONENT_NAME")
 
     for TOML_FILE in "${TOML_FILES[@]}"; do
-        update_toml "$TOML_FILE" "$COMPONENT_NAME" "$OCI_LOCATION"
+        update_toml "$COMPONENT_TYPE" "$TOML_FILE" "$COMPONENT_NAME" "$OCI_LOCATION"
     done
 }
 
