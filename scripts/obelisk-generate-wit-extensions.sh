@@ -22,4 +22,3 @@ generate() {
 }
 
 generate "activity" "activity_wasm"
-generate "workflow" "workflow"
