@@ -43,19 +43,19 @@ push_and_update() {
 
 just build
 
-push_and_update "activity/go/dist/fiboa-go.wasm" fiboa_go obelisk-go-oci.toml
-push_and_update "workflow/go/dist/fibow-go.wasm" fibow_go obelisk-go-oci.toml
+push_and_update activity_wasm "activity/go/dist/fiboa-go.wasm" fiboa_go obelisk-go-oci.toml
+push_and_update workflow "workflow/go/dist/fibow-go.wasm" fibow_go obelisk-go-oci.toml
 
-push_and_update "activity/js/dist/fiboa-js.wasm" fiboa_js obelisk-js-oci.toml
-push_and_update "workflow/js/dist/fibow-js.wasm" fibow_js obelisk-js-oci.toml
+push_and_update activity_wasm "activity/js/dist/fiboa-js.wasm" fiboa_js obelisk-js-oci.toml
+push_and_update workflow "workflow/js/dist/fibow-js.wasm" fibow_js obelisk-js-oci.toml
 
-push_and_update "target/wasm32-wasip2/release_activity/fiboa_rs.wasm" fiboa_rs obelisk-rs-oci.toml
+push_and_update activity_wasm "target/wasm32-wasip2/release_activity/fiboa_rs.wasm" fiboa_rs obelisk-rs-oci.toml
 # fibow_rs is shared between two configs
-push_and_update "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm" fibow_rs obelisk-rs-oci.toml obelisk-rs-spawn-oci.toml
+push_and_update workflow "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm" fibow_rs obelisk-rs-oci.toml obelisk-rs-spawn-oci.toml
 
-push_and_update "target/wasm32-wasip2/release_activity/fiboa_rs_spawn.wasm" fiboa_rs_spawn obelisk-rs-spawn-oci.toml
+push_and_update activity_wasm "target/wasm32-wasip2/release_activity/fiboa_rs_spawn.wasm" fiboa_rs_spawn obelisk-rs-spawn-oci.toml
 
-push_and_update "activity/py/dist/fiboa-py.wasm" fiboa_py obelisk-py-oci.toml
-push_and_update "workflow/py/dist/fibow-py.wasm" fibow_py obelisk-py-oci.toml
+push_and_update activity_wasm "activity/py/dist/fiboa-py.wasm" fiboa_py obelisk-py-oci.toml
+push_and_update workflow "workflow/py/dist/fibow-py.wasm" fibow_py obelisk-py-oci.toml
 
 echo "All components pushed and TOML file updated successfully."
