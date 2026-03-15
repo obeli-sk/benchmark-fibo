@@ -10,7 +10,7 @@ version = "0.1.0"
 anyhow = "1"
 wasip2 = "1.0.2"
 wit-bindgen = "0.53.1"
-wstd = "0.6.5"
+wstd = "0.6.6"
 
 [profile.release]
 codegen-units = 1
