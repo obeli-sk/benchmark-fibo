@@ -1,10 +1,10 @@
 [[activity_wasm]]
 name = "fiboa_js"
-location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_js:2026-02-12@sha256:b6235f1a88aefc3f95330a85895475be86e4c0fb5005b073a7495a15befeb8b7"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_js:2026-03-30@sha256:6005ecceaa1615b65cf19c96334b01734ff3d48c7ab633ccd603b1d4d85c2e30"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
 [[workflow_wasm]]
 name = "fibow_js"
-location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_js:2026-02-12@sha256:f557ae290cac12f4453c465ab281c65a6ba8ef3984956483d45e698a3b86e411"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_js:2026-03-30@sha256:0f4ef82775e672096082c2b2f4952194429ddaad4b884db05d366bd5b80858cc"
 exec.lock_expiry.seconds = 2
