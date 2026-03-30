@@ -33,11 +33,15 @@ serve-go-oci:
 	obelisk server run --config obelisk-go-oci.toml
 
 # Start server with JavaScript components built locally
-serve-js:
-	obelisk server run --config obelisk-js.toml
+serve-js  *params:
+	obelisk server run --config obelisk-js.toml  {{params}}
 # Start server with JavaScript components downloaded from OCI registry
 serve-js-oci:
 	obelisk server run --config obelisk-js-oci.toml
+
+# Start server with native JavaScript components (no build step needed)
+serve-js-native *params:
+	obelisk server run --config obelisk-js-native.toml  {{params}}
 
 # Start server with Python components build locally
 serve-py:
