@@ -54,8 +54,8 @@ jobs:
 
       - name: Verify config
         run: |
-          nix develop --command obelisk server verify --config obelisk-${{ matrix.language }}.toml
+          nix develop --command obelisk server verify --deployment obelisk-${{ matrix.language }}.toml
 
       - name: Verify OCI config
         run: |
-          nix develop --command obelisk server verify --config obelisk-${{ matrix.language }}-oci.toml
+          nix develop --command obelisk server verify --deployment obelisk-${{ matrix.language }}-oci.toml

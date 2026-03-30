@@ -1,4 +1,1 @@
 wasm.backtrace.persist = false
-
-[log.console]
-enabled = true
