@@ -18,6 +18,13 @@ Compute `fibo(10)` in parallel 200 times:
 obelisk execution submit -f .../fibow.fiboa-concurrent -- 10 200
 ```
 
+## Running with native JavaScript (no build step)
+Launch Obelisk with native JS activity and workflow (no compilation required):
+```sh
+just serve-js-native
+```
+The `activity/js-native/fibo.js` and `workflow/js-native/` files are loaded directly by Obelisk's built-in JS runtime.
+
 ## Building WASM Components from source
 If [direnv](https://github.com/direnv/direnv) and [Nix](https://nixos.org/) are available:
 ```sh

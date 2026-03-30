@@ -1,6 +1,6 @@
 import { fibo } from 'benchmark-fibo:activity/fiboa';
 import { fiboSubmit, fiboAwaitNext } from 'benchmark-fibo:activity-obelisk-ext/fiboa';
-import { joinSetCreate } from 'obelisk:workflow/workflow-support@4.1.0';
+import { joinSetCreate } from 'obelisk:workflow/workflow-support@5.0.0';
 
 function unwrap(obj) {
     if (obj.tag === 'ok') {

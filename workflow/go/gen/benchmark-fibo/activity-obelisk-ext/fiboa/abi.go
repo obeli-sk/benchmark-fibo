@@ -24,9 +24,3 @@ func lower_ExecutionID(v execution.ExecutionID) (f0 *uint8, f1 uint32) {
 	f0, f1 = cm.LowerString(v.ID)
 	return
 }
-
-// ResultU64Shape is used for storage in variant or result types.
-type ResultU64Shape struct {
-	_     cm.HostLayout
-	shape [unsafe.Sizeof(cm.Result[uint64, uint64, struct{}]{})]byte
-}

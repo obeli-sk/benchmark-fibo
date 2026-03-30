@@ -1,18 +1,10 @@
-api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
-webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
-
-wasm.backtrace.persist = false
-
-[log.console]
-enabled = true
-
 [[activity_wasm]]
 name = "fiboa_py"
 location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_py:2026-02-12@sha256:81d84690675ec8f01415d80c8716a23667ba224882472c5712487bbfa3a76ce6"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
-[[workflow]]
+[[workflow_wasm]]
 name = "fibow_py"
 location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_py:2026-02-12@sha256:33a2bdfea6db5b8e0be402e947596b95b9751b253af3f9e7f5ddeca3fd573380"
 exec.lock_expiry.seconds = 2
