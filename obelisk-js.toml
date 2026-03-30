@@ -1,18 +1,10 @@
-api.listening_addr = "127.0.0.1:5005"   # Address and port on which the API server will listen.
-webui.listening_addr = "127.0.0.1:8080" # Address and port on which the webui webhook component will listen.
-
-wasm.backtrace.persist = false
-
-[log.console]
-enabled = true
-
 [[activity_wasm]]
 name = "fiboa_js"
-location = "${OBELISK_TOML_DIR}/activity/js/dist/fiboa-js.wasm"
+location = "${DEPLOYMENT_DIR}/activity/js/dist/fiboa-js.wasm"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
-[[workflow]]
+[[workflow_wasm]]
 name = "fibow_js"
-location = "${OBELISK_TOML_DIR}/workflow/js/dist/fibow-js.wasm"
+location = "${DEPLOYMENT_DIR}/workflow/js/dist/fibow-js.wasm"
 exec.lock_expiry.seconds = 2

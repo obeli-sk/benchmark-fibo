@@ -1,0 +1,32 @@
+[[activity_js]]
+name = "fiboa_js_native"
+location = "${DEPLOYMENT_DIR}/activity/js-native/fibo.js"
+ffqn = "benchmark-fibo:activity/fiboa.fibo"
+params = [
+  { name = "n", type = "u8" },
+]
+return_type = "result<u64, string>"
+max_retries = 0
+exec.lock_expiry.seconds = 25
+
+[[workflow_js]]
+name = "fibow_js_native"
+location = "${DEPLOYMENT_DIR}/workflow/js-native/fiboa.js"
+ffqn = "benchmark-fibo:workflow/fibow.fiboa"
+params = [
+  { name = "n", type = "u8" },
+  { name = "iterations", type = "u32" },
+]
+return_type = "result<u64, string>"
+exec.lock_expiry.seconds = 2
+
+[[workflow_js]]
+name = "fibow_js_native_concurrent"
+location = "${DEPLOYMENT_DIR}/workflow/js-native/fiboa_concurrent.js"
+ffqn = "benchmark-fibo:workflow/fibow.fiboa-concurrent"
+params = [
+  { name = "n", type = "u8" },
+  { name = "iterations", type = "u32" },
+]
+return_type = "result<u64, string>"
+exec.lock_expiry.seconds = 2

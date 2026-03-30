@@ -29,11 +29,6 @@ type AwaitNextExtensionError = execution.AwaitNextExtensionError
 // See [execution.GetExtensionError] for more information.
 type GetExtensionError = execution.GetExtensionError
 
-// InvokeExtensionError represents the type alias "benchmark-fibo:activity-obelisk-ext/fiboa#invoke-extension-error".
-//
-// See [execution.InvokeExtensionError] for more information.
-type InvokeExtensionError = execution.InvokeExtensionError
-
 // FiboSubmit represents the imported function "fibo-submit".
 //
 //	fibo-submit: func(join-set: borrow<join-set>, n: u8) -> execution-id
@@ -66,17 +61,5 @@ func FiboAwaitNext(joinSet JoinSet) (result cm.Result[AwaitNextExtensionErrorSha
 func FiboGet(executionID ExecutionID) (result cm.Result[GetExtensionErrorShape, cm.Result[uint64, uint64, struct{}], GetExtensionError]) {
 	executionId0, executionId1 := lower_ExecutionID(executionID)
 	wasmimport_FiboGet((*uint8)(executionId0), (uint32)(executionId1), &result)
-	return
-}
-
-// FiboInvoke represents the imported function "fibo-invoke".
-//
-//	fibo-invoke: func(label: string, n: u8) -> result<result<u64>, invoke-extension-error>
-//
-//go:nosplit
-func FiboInvoke(label string, n uint8) (result cm.Result[ResultU64Shape, cm.Result[uint64, uint64, struct{}], InvokeExtensionError]) {
-	label0, label1 := cm.LowerString(label)
-	n0 := (uint32)(n)
-	wasmimport_FiboInvoke((*uint8)(label0), (uint32)(label1), (uint32)(n0), &result)
 	return
 }

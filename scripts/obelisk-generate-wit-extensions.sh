@@ -21,4 +21,4 @@ generate() {
   done
 }
 
-generate "activity" "activity_wasm"
+generate "activity" "activity"

@@ -1,0 +1,5 @@
+wasm.backtrace.persist = false
+activities.directories.enabled = true
+
+[log.console]
+enabled = true
