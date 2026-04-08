@@ -24,7 +24,7 @@ update_toml() {
     local NEW_LOCATION="$4"
 
     # Replace the old location with the new OCI location
-    obelisk component add ${TOML_COMPONENT_TYPE} ${NEW_LOCATION} --name ${COMPONENT_NAME} --deployment $TOML_FILE
+    obelisk component add ${NEW_LOCATION} ${COMPONENT_NAME} --deployment $TOML_FILE
 }
 
 push_and_update() {
