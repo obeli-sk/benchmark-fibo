@@ -68,8 +68,15 @@
               python314.pkgs.venvShellHook
             ];
             venvDir = "./.venv";
-            postVenvCreation = ''
-              pip install -r requirements.txt
+            postShellHook = ''
+              stamp_hash=$(sha256sum requirements.txt flake.lock | sha256sum | cut -d' ' -f1)
+              stamp=".venv/.deps.$stamp_hash"
+              if [ ! -f "$stamp" ]; then
+                rm -rf .venv
+                # venvShellHook will recreate on next entry; or recreate inline:
+                python -m venv .venv && source .venv/bin/activate
+                pip install -r requirements.txt && touch "$stamp"
+              fi
             '';
           };
         }
