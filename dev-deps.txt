@@ -3,7 +3,7 @@ cargo-edit-upgrade 0.13.9
 cargo-expand 1.0.121
 cargo generate 0.23.7
 just 1.48.1
-obelisk 0.37.0
+obelisk 0.37.1
 rustc 1.94.0 (4a4ef493e 2026-03-02)
 wasm-tools 1.245.1
 node.js v22.22.2
