@@ -1,0 +1,40 @@
+[[activity_js]]
+name = "fiboa_js_native"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_js_native:2026-04-08@sha256:a432c24130598ee601467e0d74a291ac05d7dca4eff75f53b7bef6196527fe1f"
+ffqn = "benchmark-fibo:activity/fiboa.fibo"
+return_type = "result<u64, string>"
+exec = { lock_expiry = { seconds = 25 } }
+
+[[activity_js.params]]
+name = "n"
+type = "u8"
+
+[[workflow_js]]
+name = "fibow_js_native"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_js_native:2026-04-08@sha256:1bc9811b890225fc4d5a2bbab9e94869d8e8f40e2d91d878ab8ee05595479b62"
+ffqn = "benchmark-fibo:workflow/fibow.fiboa"
+return_type = "result<u64, string>"
+exec = { lock_expiry = { seconds = 2 } }
+
+[[workflow_js.params]]
+name = "n"
+type = "u8"
+
+[[workflow_js.params]]
+name = "iterations"
+type = "u32"
+
+[[workflow_js]]
+name = "fibow_concurrent_js_native"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_concurrent_js_native:2026-04-08@sha256:7503b316c37bb97b40eb61380daac934bd2ba66ad8b23a5748a25f5fac7999a6"
+ffqn = "benchmark-fibo:workflow/fibow.fiboa-concurrent"
+return_type = "result<u64, string>"
+exec = { lock_expiry = { seconds = 2 } }
+
+[[workflow_js.params]]
+name = "n"
+type = "u8"
+
+[[workflow_js.params]]
+name = "iterations"
+type = "u32"
