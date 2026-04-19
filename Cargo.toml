@@ -8,8 +8,8 @@ version = "0.1.0"
 
 [workspace.dependencies]
 anyhow = "1"
-wasip2 = "1.0.2"
-wit-bindgen = "0.55.0"
+wasip2 = "1.0.3"
+wit-bindgen = "0.57.1"
 wstd = "0.6.6"
 
 [profile.release]
