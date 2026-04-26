@@ -46,6 +46,12 @@
           });
         in
         {
+          devShells.noObelisk = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              cargo-edit
+              rustToolchain
+            ];
+          };
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = with pkgs; [
               cargo-binstall
