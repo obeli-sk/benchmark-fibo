@@ -1,6 +1,6 @@
 [[activity_js]]
 name = "fiboa_js_native"
-location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_js_native:2026-04-08@sha256:a432c24130598ee601467e0d74a291ac05d7dca4eff75f53b7bef6196527fe1f"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_js_native:2026-06-24@sha256:854c2b8210d67548ee50dace825a1954f5a6fef74b28b001535002e50ee6a9e7"
 ffqn = "benchmark-fibo:activity/fiboa.fibo"
 return_type = "result<u64, string>"
 exec = { lock_expiry = { seconds = 25 } }
@@ -11,7 +11,7 @@ type = "u8"
 
 [[workflow_js]]
 name = "fibow_js_native"
-location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_js_native:2026-04-08@sha256:1bc9811b890225fc4d5a2bbab9e94869d8e8f40e2d91d878ab8ee05595479b62"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_js_native:2026-06-24@sha256:6af61462f64e7698780c909ea196ef0af6a841fb34b4cbb9cd1df09b7627d3b3"
 ffqn = "benchmark-fibo:workflow/fibow.fiboa"
 return_type = "result<u64, string>"
 exec = { lock_expiry = { seconds = 2 } }
@@ -26,7 +26,7 @@ type = "u32"
 
 [[workflow_js]]
 name = "fibow_concurrent_js_native"
-location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_concurrent_js_native:2026-04-08@sha256:7503b316c37bb97b40eb61380daac934bd2ba66ad8b23a5748a25f5fac7999a6"
+location = "oci://docker.io/getobelisk/benchmark_fibo_fibow_concurrent_js_native:2026-06-24@sha256:d99516ecae1e8c383302fe72b1bb207934acb3b7cb7b94895f34131b114f741f"
 ffqn = "benchmark-fibo:workflow/fibow.fiboa-concurrent"
 return_type = "result<u64, string>"
 exec = { lock_expiry = { seconds = 2 } }
