@@ -4,7 +4,6 @@ location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_rs_spawn:2026-04-08@
 max_retries = 0
 exec.lock_expiry.seconds = 25
 env_vars = ["FIBO_EXE_PATH"]
-directories  = { enabled = true, reuse_on_retry = false, process_provider = "native"}
 
 [[workflow_wasm]]
 name = "fibow_rs"

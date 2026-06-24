@@ -45,7 +45,8 @@ just serve-???
 ```
 
 ### Note on `fiboa-rs-spawn` activity
-In order to run this [activity](bin/native/), the `fibo` binary must be first built and `FIBO_EXE_PATH` must be set:
+This activity is configured as an exec activity that calls the native [`fibo`](bin/native/) binary.
+Build the binary first and set `FIBO_EXE_PATH`:
 ```sh
 just build-fibo-binary
 export FIBO_EXE_PATH="$(pwd)/target/x86_64-unknown-linux-musl/release_bin/fibo"
@@ -77,7 +78,7 @@ docker run --net=host --rm -it \
   -v $FIBO_DIR:/fibodir \
   -e 'FIBO_EXE_PATH=/fibodir/fibo' \
   getobelisk/obelisk \
-  server run -c /config/obelisk-rs-oci.toml
+  server run --deployment /config/obelisk-rs-oci.toml
 
 # From within the container (docker exec..) run fibo(10) with a single iteration
 obelisk execution submit -f .../fibow.fiboa -- 10 1

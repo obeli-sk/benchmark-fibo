@@ -11,6 +11,8 @@ build-js:
 	(cd activity/js && npm install && npm run build)
 	(cd workflow/js && npm install && npm run build)
 
+build-js-native:
+
 # Build Python components
 build-py:
 	(cd activity/py && ./build.sh)
@@ -21,6 +23,8 @@ build-rs:
 	(cd activity/rs && cargo build --profile release_activity)
 	(cd activity/rs-spawn && cargo build --profile release_activity)
 	(cd workflow/rs && cargo build --profile release_workflow)
+
+build-rs-spawn: build-rs build-fibo-binary
 
 build-fibo-binary:
 	cargo build -p fibo --profile=release_bin --target x86_64-unknown-linux-musl
