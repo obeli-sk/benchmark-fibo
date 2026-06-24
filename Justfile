@@ -21,7 +21,6 @@ build-py:
 # Build Rust components
 build-rs:
 	(cd activity/rs && cargo build --profile release_activity)
-	(cd activity/rs-spawn && cargo build --profile release_activity)
 	(cd workflow/rs && cargo build --profile release_workflow)
 
 build-rs-spawn: build-rs build-fibo-binary

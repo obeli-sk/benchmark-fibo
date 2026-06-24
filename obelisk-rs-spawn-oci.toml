@@ -1,9 +1,15 @@
-[[activity_wasm]]
+[[activity_exec]]
 name = "fiboa_rs_spawn"
 location = "oci://docker.io/getobelisk/benchmark_fibo_fiboa_rs_spawn:2026-04-08@sha256:7718c619e7f61205155d56e88bab848c5b2c33cec351aebbee2761bf56173acb"
-max_retries = 0
-exec.lock_expiry.seconds = 25
+ffqn = "benchmark-fibo:activity/fiboa.fibo"
+return_type = "result<u64>"
 env_vars = ["FIBO_EXE_PATH"]
+exec = { lock_expiry = { seconds = 25 } }
+max_output_bytes = 4096
+
+[[activity_exec.params]]
+name = "n"
+type = "u8"
 
 [[workflow_wasm]]
 name = "fibow_rs"
