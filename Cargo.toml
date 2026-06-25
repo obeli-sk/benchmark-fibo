@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["activity/rs", "activity/rs-spawn", "bin/native", "workflow/rs"]
+members = ["activity/rs", "bin/native", "workflow/rs"]
 
 [workspace.package]
 edition = "2024"

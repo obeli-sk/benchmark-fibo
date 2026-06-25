@@ -1,10 +1,10 @@
 [[activity_wasm]]
 name = "fiboa_js"
-location = "${DEPLOYMENT_DIR}/activity/js/dist/fiboa-js.wasm"
+location = "activity/js/dist/fiboa-js.wasm"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
 [[workflow_wasm]]
 name = "fibow_js"
-location = "${DEPLOYMENT_DIR}/workflow/js/dist/fibow-js.wasm"
+location = "workflow/js/dist/fibow-js.wasm"
 exec.lock_expiry.seconds = 2

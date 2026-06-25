@@ -1,10 +1,10 @@
 [[activity_wasm]]
 name = "fiboa_py"
-location = "${DEPLOYMENT_DIR}/activity/py/dist/fiboa-py.wasm"
+location = "activity/py/dist/fiboa-py.wasm"
 max_retries = 0
 exec.lock_expiry.seconds = 25
 
 [[workflow_wasm]]
 name = "fibow_py"
-location = "${DEPLOYMENT_DIR}/workflow/py/dist/fibow-py.wasm"
+location = "workflow/py/dist/fibow-py.wasm"
 exec.lock_expiry.seconds = 2

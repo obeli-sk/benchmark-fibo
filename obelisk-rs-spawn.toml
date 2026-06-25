@@ -1,12 +1,16 @@
-[[activity_wasm]]
+[[activity_exec]]
 name = "fiboa_rs_spawn"
-location = "${DEPLOYMENT_DIR}/target/wasm32-wasip2/release_activity/fiboa_rs_spawn.wasm"
-max_retries = 0
+ffqn = "benchmark-fibo:activity/fiboa.fibo"
+location = "scripts/fiboa-rs-spawn.sh"
 exec.lock_expiry.seconds = 25
 env_vars = ["FIBO_EXE_PATH"]
-directories  = { enabled = true, reuse_on_retry = false, process_provider = "native"}
+params = [
+  { name = "n", type = "u8" },
+]
+return_type = "result<u64>"
+max_output_bytes = 4096
 
 [[workflow_wasm]]
 name = "fibow_rs"
-location = "${DEPLOYMENT_DIR}/target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
+location = "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
 exec.lock_expiry.seconds = 2

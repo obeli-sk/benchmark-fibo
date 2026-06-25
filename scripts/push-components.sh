@@ -45,6 +45,7 @@ push_and_update obelisk-rs.toml fiboa_rs obelisk-rs-oci.toml
 # fibow_rs is shared between two configs
 push_and_update obelisk-rs.toml fibow_rs obelisk-rs-oci.toml obelisk-rs-spawn-oci.toml
 
+# fiboa_rs_spawn is an exec activity; `component push` packages the script into an OCI image
 push_and_update obelisk-rs-spawn.toml fiboa_rs_spawn obelisk-rs-spawn-oci.toml
 
 push_and_update obelisk-py.toml fiboa_py obelisk-py-oci.toml
