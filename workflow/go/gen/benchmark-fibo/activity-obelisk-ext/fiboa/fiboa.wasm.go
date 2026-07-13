@@ -14,7 +14,7 @@ func wasmimport_FiboSubmit(joinSet0 uint32, n0 uint32, result *ExecutionID)
 
 //go:wasmimport benchmark-fibo:activity-obelisk-ext/fiboa fibo-await-next
 //go:noescape
-func wasmimport_FiboAwaitNext(joinSet0 uint32, result *cm.Result[AwaitNextExtensionErrorShape, cm.Tuple[ExecutionID, cm.Result[uint64, uint64, struct{}]], AwaitNextExtensionError])
+func wasmimport_FiboAwaitNext(joinSet0 uint32, result *cm.Result[AwaitNextExtensionErrorShape, cm.Result[uint64, uint64, struct{}], AwaitNextExtensionError])
 
 //go:wasmimport benchmark-fibo:activity-obelisk-ext/fiboa fibo-get
 //go:noescape

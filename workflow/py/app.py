@@ -19,7 +19,7 @@ class Fibow(exports.Fibow):
             benchmark_fibo_activity_obelisk_ext_fiboa.fibo_submit(join_set, n)
         last = 0
         for i in range(iterations):
-            exec, last = benchmark_fibo_activity_obelisk_ext_fiboa.fibo_await_next(join_set)
+            last = benchmark_fibo_activity_obelisk_ext_fiboa.fibo_await_next(join_set)
         return unwrap(last)
 
 def unwrap(result: Result[int, None]) -> int:
