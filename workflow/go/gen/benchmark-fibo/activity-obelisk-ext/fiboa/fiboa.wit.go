@@ -43,11 +43,10 @@ func FiboSubmit(joinSet JoinSet, n uint8) (result ExecutionID) {
 
 // FiboAwaitNext represents the imported function "fibo-await-next".
 //
-//	fibo-await-next: func(join-set: borrow<join-set>) -> result<tuple<execution-id,
-//	result<u64>>, await-next-extension-error>
+//	fibo-await-next: func(join-set: borrow<join-set>) -> result<result<u64>, await-next-extension-error>
 //
 //go:nosplit
-func FiboAwaitNext(joinSet JoinSet) (result cm.Result[AwaitNextExtensionErrorShape, cm.Tuple[ExecutionID, cm.Result[uint64, uint64, struct{}]], AwaitNextExtensionError]) {
+func FiboAwaitNext(joinSet JoinSet) (result cm.Result[AwaitNextExtensionErrorShape, cm.Result[uint64, uint64, struct{}], AwaitNextExtensionError]) {
 	joinSet0 := cm.Reinterpret[uint32](joinSet)
 	wasmimport_FiboAwaitNext((uint32)(joinSet0), &result)
 	return

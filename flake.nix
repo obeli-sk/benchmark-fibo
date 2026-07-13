@@ -75,7 +75,13 @@
             ];
             venvDir = "./.venv";
             postShellHook = ''
-              stamp_hash=$(sha256sum requirements.txt flake.lock | sha256sum | cut -d' ' -f1)
+              workspace_path=$(realpath "$PWD")
+              stamp_hash=$(
+                {
+                  sha256sum requirements.txt flake.lock
+                  printf '%s\n' "$workspace_path"
+                } | sha256sum | cut -d' ' -f1
+              )
               stamp=".venv/.deps.$stamp_hash"
               if [ ! -f "$stamp" ]; then
                 rm -rf .venv

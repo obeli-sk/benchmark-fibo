@@ -1,8 +1,8 @@
 import { fibo } from 'benchmark-fibo:activity/fiboa';
 import { fiboSubmit, fiboAwaitNext } from 'benchmark-fibo:activity-obelisk-ext/fiboa';
-import { joinSetCreate } from 'obelisk:workflow/workflow-support@5.1.0';
+import { joinSetCreate as joinSetCreateWit } from 'obelisk:workflow/workflow-support@6.0.0';
 
-function unwrap(obj) {
+function unwrapWitResult(obj) {
     if (obj.tag === 'ok') {
         return obj.val;
     } else {
@@ -19,14 +19,13 @@ export const fibow = {
         return last;
     },
     fiboaConcurrent(n, iterations) {
-        const joinSet = joinSetCreate();
+        const joinSet = joinSetCreateWit(undefined);
         for (let i = 0; i < iterations; i++) {
             fiboSubmit(joinSet, n);
         }
         let last = 0;
         for (let i = 0; i < iterations; i++) {
-            let [_execId, res] = fiboAwaitNext(joinSet);
-            last = unwrap(res);
+            last = unwrapWitResult(fiboAwaitNext(joinSet));
         }
         return last;
     }

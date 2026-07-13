@@ -28,8 +28,7 @@ func fiboaConcurrent(n uint8, iterations uint32) (result cm.Result[uint64, uint6
 		if res.IsErr() {
 			panic("activity timed out")
 		}
-		res2 := res.OK()
-		last = res2.F1
+		last = *res.OK()
 
 	}
 	return last

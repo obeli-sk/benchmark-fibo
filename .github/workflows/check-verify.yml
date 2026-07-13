@@ -56,9 +56,9 @@ jobs:
 
       - name: Verify config
         run: |
-          nix develop --command obelisk server verify --ignore-missing-env-vars --deployment obelisk-${{ matrix.language }}.toml
+          nix develop --command obelisk server verify --allow-unavailable-runtime-config --deployment obelisk-${{ matrix.language }}.toml
 
       - name: Verify OCI config
         if: matrix.language != 'rs-spawn'
         run: |
-          nix develop --command obelisk server verify --ignore-missing-env-vars --deployment obelisk-${{ matrix.language }}-oci.toml
+          nix develop --command obelisk server verify --allow-unavailable-runtime-config --deployment obelisk-${{ matrix.language }}-oci.toml
