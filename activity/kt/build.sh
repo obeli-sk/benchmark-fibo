@@ -2,7 +2,8 @@
 set -exuo pipefail
 cd "$(dirname "$0")"
 
-# Kotlin/Wasm has no WASIp2/component toolchain yet (KT-64568), so we compile the
+# Kotlin/Wasm has no WASIp2/component toolchain yet (WASI 0.2 target KT-64568, WIT
+# bindings / component model KT-64569), so we compile the
 # pure-numeric `fibo` export to a wasm-wasi (WASIp1) core module with kotlinc-wasm,
 # then componentize it to WASIp2 with wasm-tools + the wasi_snapshot_preview1
 # reactor adapter. The wasi stdlib klib is not bundled with the kotlin compiler and

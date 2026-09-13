@@ -27,10 +27,12 @@ The `activity/js-native/fibo.js` and `workflow/js-native/` files are loaded dire
 
 ## Running with Kotlin (native WASIp2 activity)
 The `fibo` activity is compiled natively from Kotlin to a WASIp2 component. Kotlin/Wasm
-has no component-model toolchain yet (its `wasm-wasi` target still emits WASIp1 core
-modules, and there is no WIT binding generator), so `activity/kt/build.sh` compiles the
-pure-numeric `fibo` export with `kotlinc-wasm` and then componentizes it with
-`wasm-tools` plus the `wasi_snapshot_preview1` reactor adapter. Because that route
+has no component-model toolchain yet: its `wasm-wasi` target still emits WASIp1 core
+modules ([KT-64568](https://youtrack.jetbrains.com/issue/KT-64568)) and there is no WIT
+binding generator ([KT-64569](https://youtrack.jetbrains.com/issue/KT-64569)). So
+`activity/kt/build.sh` compiles the pure-numeric `fibo` export with `kotlinc-wasm` and
+then componentizes it with `wasm-tools` plus the `wasi_snapshot_preview1` reactor
+adapter. Because that route
 cannot express the workflow's join-set resource imports, only the activity is Kotlin;
 the `fibow` workflow is reused from the Rust build (Obelisk calls the activity by FFQN
 regardless of its implementation language).
