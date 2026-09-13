@@ -23,5 +23,5 @@ echo "wit-bindgen-go-cli 0.7.0" >> dev-deps.txt
 # Python
 python --version >> dev-deps.txt
 echo "componentize-py $(python -m pip show componentize-py | grep Version)" >> dev-deps.txt
-# Kotlin
-echo "kotlinc-wasm $(kotlinc-wasm -version 2>&1 | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -1)" >> dev-deps.txt
+# Kotlin (match the "kotlinc-wasm X.Y.Z" token to avoid the JRE version; no `head` to keep pipefail happy)
+echo "$(kotlinc-wasm -version 2>&1 | grep -oE 'kotlinc-wasm [0-9]+\.[0-9]+\.[0-9]+')" >> dev-deps.txt

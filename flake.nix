@@ -74,6 +74,7 @@
               python314.pkgs.venvShellHook
               # Kotlin (kotlinc-wasm for the wasm-wasi target)
               kotlin
+              curl # activity/kt/build.sh fetches the wasi stdlib klib + wasi adapter
             ];
             venvDir = "./.venv";
             postShellHook = ''
