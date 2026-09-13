@@ -1,5 +1,9 @@
 # Build all components
-build: build-go build-js build-py build-rs build-fibo-binary
+build: build-go build-js build-py build-rs build-kt build-fibo-binary
+
+# Build Kotlin activity component (native WASIp2 via kotlinc-wasm + wasm-tools)
+build-kt:
+	(cd activity/kt && ./build.sh)
 
 # Build Go components
 build-go:
@@ -59,6 +63,11 @@ serve-rs:
 # Start server with Rust components downloaded from OCI registry
 serve-rs-oci:
 	obelisk server run --server-config server.toml --deployment obelisk-rs-oci.toml
+
+# Start server with the Kotlin activity (native WASIp2) driven by the Rust workflow.
+# Requires `just build-kt` and `just build-rs` (reuses the Rust workflow component).
+serve-kt:
+	obelisk server run --server-config server.toml --deployment obelisk-kt.toml
 
 # Start server with Rust components (spawning native process) built locally
 serve-rs-spawn:

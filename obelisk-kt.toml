@@ -1,0 +1,14 @@
+# Kotlin/Wasm activity (native WASIp2 component) driven by the Rust workflow.
+# Kotlin has no WASIp2/WIT toolchain, so only the all-numeric `fiboa` activity is
+# compiled natively from Kotlin; `fibow` is reused from the Rust workflow, which
+# calls the activity by FFQN regardless of its implementation language.
+[[activity_wasm]]
+name = "fiboa_kt"
+location = "activity/kt/dist/fiboa-kt.wasm"
+max_retries = 0
+exec.lock_expiry.seconds = 25
+
+[[workflow_wasm]]
+name = "fibow_rs"
+location = "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
+exec.lock_expiry.seconds = 2
