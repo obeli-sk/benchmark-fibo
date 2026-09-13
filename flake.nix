@@ -72,6 +72,8 @@
               # Python
               python314
               python314.pkgs.venvShellHook
+              # Kotlin (kotlinc-wasm for the wasm-wasi target)
+              kotlin
             ];
             venvDir = "./.venv";
             postShellHook = ''

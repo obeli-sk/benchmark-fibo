@@ -25,6 +25,21 @@ just serve-js-native
 ```
 The `activity/js-native/fibo.js` and `workflow/js-native/` files are loaded directly by Obelisk's built-in JS runtime.
 
+## Running with Kotlin (native WASIp2 activity)
+The `fibo` activity is compiled natively from Kotlin to a WASIp2 component. Kotlin/Wasm
+has no component-model toolchain yet (its `wasm-wasi` target still emits WASIp1 core
+modules, and there is no WIT binding generator), so `activity/kt/build.sh` compiles the
+pure-numeric `fibo` export with `kotlinc-wasm` and then componentizes it with
+`wasm-tools` plus the `wasi_snapshot_preview1` reactor adapter. Because that route
+cannot express the workflow's join-set resource imports, only the activity is Kotlin;
+the `fibow` workflow is reused from the Rust build (Obelisk calls the activity by FFQN
+regardless of its implementation language).
+```sh
+just build-rs   # provides the Rust workflow component
+just build-kt   # builds activity/kt/dist/fiboa-kt.wasm
+just serve-kt
+```
+
 ## Building WASM Components from source
 If [direnv](https://github.com/direnv/direnv) and [Nix](https://nixos.org/) are available:
 ```sh
