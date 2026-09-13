@@ -3,7 +3,7 @@ from wit_world import exports
 from wit_world.imports import benchmark_fibo_activity_fiboa
 from wit_world.imports import benchmark_fibo_activity_obelisk_ext_fiboa
 from wit_world.imports import workflow_support
-from wit_world.types import Result, Ok, Err
+from componentize_py_types import Result, Ok, Err
 
 class Fibow(exports.Fibow):
 

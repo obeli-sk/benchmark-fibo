@@ -10,4 +10,4 @@ node.js v22.23.2
 tinygo version 0.40.1 linux/amd64 (using go version go1.25.7 and LLVM version 20.1.8)
 wit-bindgen-go-cli 0.7.0
 Python 3.14.7
-componentize-py Version: 0.18.0
+componentize-py Version: 0.25.1
