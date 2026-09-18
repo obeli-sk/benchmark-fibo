@@ -1,4 +1,5 @@
 import { fiboSubmit, fiboAwaitNext } from 'benchmark-fibo:activity-obelisk-ext/fiboa';
+import * as obelisk from 'obelisk:workflow@1.0.0';
 
 export default function fiboa_concurrent(n, iterations) {
     const js = obelisk.createJoinSet();
