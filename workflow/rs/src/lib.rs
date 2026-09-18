@@ -22,7 +22,7 @@ impl Guest for Component {
     fn fiboa_concurrent(n: u8, iterations: u32) -> Result<u64, ()> {
         let join_set = join_set_create();
         for _ in 0..iterations {
-            fibo_submit(&join_set, n);
+            fibo_submit(&join_set, n).unwrap();
         }
         let mut last = 0;
         for _ in 0..iterations {

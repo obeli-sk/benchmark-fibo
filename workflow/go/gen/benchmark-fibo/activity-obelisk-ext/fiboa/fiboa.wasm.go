@@ -10,7 +10,7 @@ import (
 
 //go:wasmimport benchmark-fibo:activity-obelisk-ext/fiboa fibo-submit
 //go:noescape
-func wasmimport_FiboSubmit(joinSet0 uint32, n0 uint32, result *ExecutionID)
+func wasmimport_FiboSubmit(joinSet0 uint32, n0 uint32, result *cm.Result[ChildExecutionRequestErrorShape, ExecutionID, ChildExecutionRequestError])
 
 //go:wasmimport benchmark-fibo:activity-obelisk-ext/fiboa fibo-await-next
 //go:noescape

@@ -20,7 +20,10 @@ func fiboa(n uint8, iterations uint32) (result cm.Result[uint64, uint64, struct{
 func fiboaConcurrent(n uint8, iterations uint32) (result cm.Result[uint64, uint64, struct{}]) {
 	joinSet := obeliskWorkflowSupport.JoinSetCreate()
 	for i := 0; i < int(iterations); i++ {
-		fiboaConcurrentbindings.FiboSubmit(joinSet, n)
+		res := fiboaConcurrentbindings.FiboSubmit(joinSet, n)
+		if res.IsErr() {
+			panic("activity submission failed")
+		}
 	}
 	last := cm.OK[cm.Result[uint64, uint64, struct{}]](0)
 	for i := 0; i < int(iterations); i++ {

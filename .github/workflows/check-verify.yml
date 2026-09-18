@@ -25,18 +25,12 @@ defaults:
 
 jobs:
   verify:
+    name: verify (${{ matrix.language }})
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - language: rs
-          - language: go
-          - language: py
-          - language: js
-          - language: js-native
-          - language: rs-spawn
-          - language: kt # activity only; reuses the Rust workflow, no OCI variant
+        language: [rs, go, py, js, js-native, rs-spawn, kt]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,9 +55,11 @@ jobs:
 
       - name: Verify config
         run: |
-          nix develop --command obelisk deployment verify --allow-unavailable-runtime-config --deployment obelisk-${{ matrix.language }}.toml
-
-      - name: Verify OCI config
-        if: matrix.language != 'rs-spawn' && matrix.language != 'kt'
-        run: |
-          nix develop --command obelisk deployment verify --allow-unavailable-runtime-config --deployment obelisk-${{ matrix.language }}-oci.toml
+          server_config=()
+          if [[ "${{ matrix.language }}" == "rs-spawn" ]]; then
+              server_config=(--server-config server-spawn.toml)
+          fi
+          nix develop --command obelisk deployment verify \
+            --allow-unavailable-runtime-config \
+            "${server_config[@]}" \
+            --deployment obelisk-${{ matrix.language }}.toml

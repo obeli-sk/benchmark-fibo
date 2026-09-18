@@ -10,7 +10,7 @@
       };
     };
     obelisk = {
-      url = "github:obeli-sk/obelisk/latest";
+      url = "github:obeli-sk/obelisk/latest-rc";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
@@ -59,14 +59,17 @@
               cargo-expand
               cargo-generate
               just
+              gh
+              jq
               obelisk.packages.${system}.default
               rustToolchain
               wasm-tools
               # javascript support
               nodejs_22
               wizer
+              yq-go
               # Go
-              go_1_25
+              go_1_26
               pkgsTinyGo.tinygo
               wit-bindgen-go-cli
               # Python

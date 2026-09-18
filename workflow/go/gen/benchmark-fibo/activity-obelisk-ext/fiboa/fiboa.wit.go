@@ -29,12 +29,17 @@ type AwaitNextExtensionError = execution.AwaitNextExtensionError
 // See [execution.GetExtensionError] for more information.
 type GetExtensionError = execution.GetExtensionError
 
+// ChildExecutionRequestError represents the type alias "benchmark-fibo:activity-obelisk-ext/fiboa#child-execution-request-error".
+//
+// See [execution.ChildExecutionRequestError] for more information.
+type ChildExecutionRequestError = execution.ChildExecutionRequestError
+
 // FiboSubmit represents the imported function "fibo-submit".
 //
-//	fibo-submit: func(join-set: borrow<join-set>, n: u8) -> execution-id
+//	fibo-submit: func(join-set: borrow<join-set>, n: u8) -> result<execution-id, child-execution-request-error>
 //
 //go:nosplit
-func FiboSubmit(joinSet JoinSet, n uint8) (result ExecutionID) {
+func FiboSubmit(joinSet JoinSet, n uint8) (result cm.Result[ChildExecutionRequestErrorShape, ExecutionID, ChildExecutionRequestError]) {
 	joinSet0 := cm.Reinterpret[uint32](joinSet)
 	n0 := (uint32)(n)
 	wasmimport_FiboSubmit((uint32)(joinSet0), (uint32)(n0), &result)
