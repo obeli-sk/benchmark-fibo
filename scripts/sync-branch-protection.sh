@@ -5,7 +5,6 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 BRANCH="${1:-main}"
-REPO="$(gh repo view --json nameWithOwner -q .nameWithOwner)"
 
 JOB_NAMES_JQ='
 def cartesian(m):
@@ -64,6 +63,12 @@ PAYLOAD="$(jq -n --argjson contexts "$CONTEXTS_JSON" '{
     required_conversation_resolution: true
 }')"
 
+if [ "${DRY_RUN:-}" = "1" ]; then
+    echo "$PAYLOAD"
+    exit 0
+fi
+
+REPO="$(gh repo view --json nameWithOwner -q .nameWithOwner)"
 echo "Applying branch protection to $REPO@$BRANCH"
 echo "$PAYLOAD" | gh api \
     --method PUT \
