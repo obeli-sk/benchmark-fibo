@@ -56,10 +56,13 @@ jobs:
       - name: Verify config
         run: |
           server_config=()
+          app_config=app.toml
           if [[ "${{ matrix.language }}" == "rs-spawn" ]]; then
               server_config=(--server-config server-spawn.toml)
+              app_config=app-spawn.toml
           fi
           nix develop --command obelisk deployment verify \
             --allow-unavailable-runtime-config \
             "${server_config[@]}" \
+            --app-config "$app_config" \
             --deployment obelisk-${{ matrix.language }}.toml

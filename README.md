@@ -56,7 +56,7 @@ Build all components:
 just build
 ```
 
-Then run Obelisk with one of the provided TOML files. List all available targets:
+Then run Obelisk with one of the provided deployment TOML files and its app policy. List all available targets:
 ```sh
 just --list
 just serve-???
@@ -69,3 +69,4 @@ Build the binary first and set `FIBO_EXE_PATH`:
 just build-fibo-binary
 export FIBO_EXE_PATH="$(pwd)/target/x86_64-unknown-linux-musl/release_bin/fibo"
 ```
+The `rs-spawn` deployment uses `app-spawn.toml` and `server-spawn.toml` to approve native execution.

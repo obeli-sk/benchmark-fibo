@@ -34,25 +34,25 @@ build-fibo-binary:
 
 # Start server with Go components built locally
 serve-go:
-	obelisk server run --server-config server.toml --deployment obelisk-go.toml
+	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-go.toml
 # Start server with JavaScript components built locally
 serve-js  *params:
-	obelisk server run --server-config server.toml --deployment obelisk-js.toml  {{params}}
+	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-js.toml  {{params}}
 # Start server with native JavaScript components (no build step needed)
 serve-js-native *params:
-	obelisk server run --server-config server.toml --deployment obelisk-js-native.toml  {{params}}
+	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-js-native.toml  {{params}}
 
 # Start server with Python components build locally
 serve-py:
-	obelisk server run --server-config server.toml --deployment obelisk-py.toml
+	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-py.toml
 # Start server with Rust components built locally
 serve-rs:
-	obelisk server run --server-config server.toml --deployment obelisk-rs.toml
+	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-rs.toml
 # Start server with the Kotlin activity (native WASIp2) driven by the Rust workflow.
 # Requires `just build-kt` and `just build-rs` (reuses the Rust workflow component).
 serve-kt:
-	obelisk server run --server-config server.toml --deployment obelisk-kt.toml
+	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-kt.toml
 
 # Start server with Rust components (spawning native process) built locally
 serve-rs-spawn:
-	obelisk server run --server-config server-spawn.toml --deployment obelisk-rs-spawn.toml
+	obelisk server run --server-config server-spawn.toml --app-config app-spawn.toml --deployment obelisk-rs-spawn.toml
