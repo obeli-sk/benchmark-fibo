@@ -1,2 +1,7 @@
+app_name = "benchmark-fibo"
+
+[public_env]
+FIBO_EXE_PATH = {}
+
 [allowed_exec_activities]
 fiboa_rs_spawn = "sha256:b0b58c1dcb3010db41f699038df065b361bc11e3390366193ab2b1dd4fad5498"
