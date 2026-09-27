@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [rs, js, js-native, rs-spawn]
+        language: [rs, rs-spawn, js, js-componentize]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,4 +61,4 @@ jobs:
             --allow-unavailable-runtime-config \
             "${server_config[@]}" \
             --app-config "$app_config" \
-            --deployment obelisk-${{ matrix.language }}.toml
+            --deployment deployment-${{ matrix.language }}.toml
