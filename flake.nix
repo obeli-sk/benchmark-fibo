@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-tinygo.url = "github:NixOS/nixpkgs/b40629efe5d6ec48dd1efba650c797ddbd39ace0";
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -18,7 +17,7 @@
       };
     };
   };
-  outputs = { self, nixpkgs, nixpkgs-tinygo, flake-utils, rust-overlay, obelisk }:
+  outputs = { self, nixpkgs, flake-utils, rust-overlay, obelisk }:
     flake-utils.lib.eachDefaultSystem
       (system:
         let
@@ -26,24 +25,7 @@
           pkgs = import nixpkgs {
             inherit system overlays;
           };
-          pkgsTinyGo = import nixpkgs-tinygo {
-            inherit system;
-          };
           rustToolchain = pkgs.pkgsBuildHost.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
-          wit-bindgen-go-cli = pkgs.buildGoModule (rec {
-            pname = "wit-bindgen-go-cli";
-            version = "0.7.0"; # NB: Update version in dev-deps.sh
-            src = pkgs.fetchFromGitHub {
-              owner = "bytecodealliance";
-              repo = "go-modules";
-              rev = "v${version}";
-              hash = "sha256-bzsB0EsDNk6x1xroIQqbUy7L97JbEJHo7wASnl35X+0=";
-            };
-            modMode = "workspace";
-            subPackages = [ "cmd/wit-bindgen-go" ];
-            vendorHash = "sha256-9BLzPxLc+HoVQuUtTwLj6QZvN7BLrX5Zy4s5eWTXvwA=";
-            proxyVendor = true;
-          });
         in
         {
           devShells.noObelisk = pkgs.mkShell {
@@ -68,34 +50,7 @@
               nodejs_22
               wizer
               yq-go
-              # Go
-              go_1_26
-              pkgsTinyGo.tinygo
-              wit-bindgen-go-cli
-              # Python
-              python314
-              python314.pkgs.venvShellHook
-              # Kotlin (kotlinc-wasm for the wasm-wasi target)
-              kotlin
-              curl # activity/kt/build.sh fetches the wasi stdlib klib + wasi adapter
             ];
-            venvDir = "./.venv";
-            postShellHook = ''
-              workspace_path=$(realpath "$PWD")
-              stamp_hash=$(
-                {
-                  sha256sum requirements.txt flake.lock
-                  printf '%s\n' "$workspace_path"
-                } | sha256sum | cut -d' ' -f1
-              )
-              stamp=".venv/.deps.$stamp_hash"
-              if [ ! -f "$stamp" ]; then
-                rm -rf .venv
-                # venvShellHook will recreate on next entry; or recreate inline:
-                python -m venv .venv && source .venv/bin/activate
-                pip install -r requirements.txt && touch "$stamp"
-              fi
-            '';
           };
         }
       );

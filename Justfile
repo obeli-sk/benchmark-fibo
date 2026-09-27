@@ -1,26 +1,12 @@
 # Build all components
-build: build-go build-js build-py build-rs build-kt build-fibo-binary
+build: build-js build-rs build-fibo-binary
 
-# Build Kotlin activity component (native WASIp2 via kotlinc-wasm + wasm-tools)
-build-kt:
-	(cd activity/kt && ./build.sh)
-
-# Build Go components
-build-go:
-	(cd activity/go && ./build.sh)
-	(cd workflow/go && ./build.sh)
-
-# Build JavaScript components
+# Build JavaScript components (componentize-js)
 build-js:
 	(cd activity/js && npm install && npm run build)
 	(cd workflow/js && npm install && npm run build)
 
 build-js-native:
-
-# Build Python components
-build-py:
-	(cd activity/py && ./build.sh)
-	(cd workflow/py && ./build.sh)
 
 # Build Rust components
 build-rs:
@@ -32,9 +18,6 @@ build-rs-spawn: build-rs build-fibo-binary
 build-fibo-binary:
 	cargo build -p fibo --profile=release_bin --target x86_64-unknown-linux-musl
 
-# Start server with Go components built locally
-serve-go:
-	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-go.toml
 # Start server with JavaScript components built locally
 serve-js  *params:
 	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-js.toml  {{params}}
@@ -42,16 +25,9 @@ serve-js  *params:
 serve-js-native *params:
 	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-js-native.toml  {{params}}
 
-# Start server with Python components build locally
-serve-py:
-	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-py.toml
 # Start server with Rust components built locally
 serve-rs:
 	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-rs.toml
-# Start server with the Kotlin activity (native WASIp2) driven by the Rust workflow.
-# Requires `just build-kt` and `just build-rs` (reuses the Rust workflow component).
-serve-kt:
-	obelisk server run --server-config server.toml --app-config app.toml --deployment obelisk-kt.toml
 
 # Start server with Rust components (spawning native process) built locally
 serve-rs-spawn:
