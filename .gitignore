@@ -3,4 +3,3 @@ target-sandbox/
 /.direnv
 /.envrc
 node_modules/
-/.gopath

@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [rs, go, py, js, js-native, rs-spawn, kt]
+        language: [rs, js, js-native, rs-spawn]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,10 +48,6 @@ jobs:
 
       - name: Build WASM components
         run: nix develop --command just build-${{ matrix.language }}
-
-      - name: Build Rust workflow (Kotlin deployment reuses it)
-        if: matrix.language == 'kt'
-        run: nix develop --command just build-rs
 
       - name: Verify config
         run: |
