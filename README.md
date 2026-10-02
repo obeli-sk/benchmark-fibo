@@ -9,6 +9,11 @@ just build-rs
 just serve-rs
 ```
 
+The CLI needs the API token that the server logs at startup (`API startup token: ...`):
+```sh
+export OBELISK_API_TOKEN=<token>
+```
+
 Compute `fibo(10)` sequentially 100 times:
 ```sh
 obelisk execution submit -f .../fibow.fiboa -- 10 100
