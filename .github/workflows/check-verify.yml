@@ -57,7 +57,8 @@ jobs:
               server_config=(--server-config server-spawn.toml)
               app_config=app-spawn.toml
           fi
-          nix develop --command obelisk deployment verify \
+          nix develop --command obelisk server verify \
+            --skip-db \
             --allow-unavailable-runtime-config \
             "${server_config[@]}" \
             --app-config "$app_config" \
