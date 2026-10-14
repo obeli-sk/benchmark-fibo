@@ -11,13 +11,13 @@ build-js-componentize:
 
 # Build Rust components
 build-rs:
-	(cd activity/rs && cargo build --profile release_activity)
-	(cd workflow/rs && cargo build --profile release_workflow)
+	(cd activity/rs && env -u CARGO_TARGET_DIR cargo build --profile release_activity)
+	(cd workflow/rs && env -u CARGO_TARGET_DIR cargo build --profile release_workflow)
 
 build-rs-spawn: build-rs build-fibo-binary
 
 build-fibo-binary:
-	cargo build -p fibo --profile=release_bin --target x86_64-unknown-linux-musl
+	CARGO_TARGET_DIR=target cargo build -p fibo --profile=release_bin --target x86_64-unknown-linux-musl
 
 # Start server with native JavaScript components (no build step needed)
 serve-js *params:
