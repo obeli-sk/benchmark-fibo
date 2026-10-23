@@ -2,9 +2,7 @@
 name = "fiboa_rs"
 location = "target/wasm32-wasip2/release_activity/fiboa_rs.wasm"
 max_retries = 0
-exec.lock_expiry.seconds = 25
 
 [[workflow_wasm]]
 name = "fibow_rs"
 location = "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
-exec.lock_expiry.seconds = 2

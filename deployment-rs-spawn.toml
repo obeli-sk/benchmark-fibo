@@ -2,7 +2,6 @@
 name = "fiboa_rs_spawn"
 ffqn = "benchmark-fibo:activity/fiboa.fibo"
 location = "scripts/fiboa-rs-spawn.sh"
-exec.lock_expiry.seconds = 25
 env_vars = ["FIBO_EXE_PATH"]
 params = [
   { name = "n", type = "u8" },
@@ -13,4 +12,3 @@ max_output_bytes = 4096
 [[workflow_wasm]]
 name = "fibow_rs"
 location = "target/wasm32-unknown-unknown/release_workflow/fibow_rs.wasm"
-exec.lock_expiry.seconds = 2
