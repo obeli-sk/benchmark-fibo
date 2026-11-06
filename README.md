@@ -9,7 +9,7 @@ just build-rs
 just serve-rs
 ```
 
-The CLI needs the API token that the server logs at startup (`API startup token: ...`):
+The local serve commands use `--dev`, which prints the API startup token. Export it for CLI calls:
 ```sh
 export OBELISK_API_TOKEN=<token>
 ```
