@@ -21,15 +21,15 @@ build-fibo-binary:
 
 # Start server with native JavaScript components (no build step needed)
 serve-js *params:
-	obelisk server run --server-config server.toml --app-config app.toml --deployment deployment-js.toml  {{params}}
+	obelisk server run --dev --server-config server.toml --app-config app.toml --deployment deployment-js.toml  {{params}}
 # Start server with componentize-js components built locally
 serve-js-componentize *params:
-	obelisk server run --server-config server.toml --app-config app.toml --deployment deployment-js-componentize.toml  {{params}}
+	obelisk server run --dev --server-config server.toml --app-config app.toml --deployment deployment-js-componentize.toml  {{params}}
 
 # Start server with Rust components built locally
 serve-rs:
-	obelisk server run --server-config server.toml --app-config app.toml --deployment deployment-rs.toml
+	obelisk server run --dev --server-config server.toml --app-config app.toml --deployment deployment-rs.toml
 
 # Start server with Rust components (spawning native process) built locally
 serve-rs-spawn:
-	obelisk server run --server-config server-spawn.toml --app-config app-spawn.toml --deployment deployment-rs-spawn.toml
+	obelisk server run --dev --server-config server-spawn.toml --app-config app-spawn.toml --deployment deployment-rs-spawn.toml
