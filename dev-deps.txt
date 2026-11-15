@@ -1,9 +1,9 @@
-cargo-binstall 1.26.0
-cargo-edit-upgrade 0.13.13
+cargo-binstall 1.26.2
+cargo-edit-upgrade 0.13.14
 cargo-expand 1.0.127
 cargo generate 0.25.1
-just 1.58.0
-obelisk 0.43.0-rc.17 (1de161e)
-rustc 1.98.1 (48a229cea 2026-09-01)
-wasm-tools 1.262.0
+just 1.59.0
+obelisk 0.43.0-rc.18 (654b621)
+rustc 1.100.0 (0ef1bc386 2026-11-09)
+wasm-tools 1.263.0
 node.js v22.23.4
