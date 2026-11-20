@@ -7,7 +7,7 @@ params = [
   { name = "n", type = "u8" },
 ]
 return_type = "result<u64>"
-max_output_bytes = 4096
+max_output_size.kib = 4
 
 [[workflow_wasm]]
 name = "fibow_rs"
